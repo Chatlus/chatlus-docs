@@ -26,7 +26,7 @@ The API can be accessed currently at http://127.0.0.1:5000/<api_route>.
 ^^^^^^^^^^^^^
 Components
 ^^^^^^^^^^^^^
-- Database: SQLite file that lives in the /backend/ folder
+- Database: PSQL server
 - Database Connector: Python script that connects the PSQL database to the rest of the backend.
 - Location Manager: Python script that interfaces with the Location API to pull map data and push it to the frontend.
 - User Manager: Python script that manages distributing and storing updates to users.
