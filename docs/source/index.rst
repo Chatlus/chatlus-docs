@@ -1,7 +1,7 @@
-SETaP 7B Untitled Project Documentation
+SETaP 7B1 - Chatlus Documentation
 ===================================
 
-**Untitled Project** is a novel Instant Messenger app that prioritises local connection through location-separated chatrooms.
+**Chatlus** is a novel Instant Messenger app that prioritises local connection through location-separated chatrooms.
 
 .. note::
 
