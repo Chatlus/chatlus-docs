@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Untitled SETaP Project'
+project = 'Chatlus'
 copyright = 'None'
-author = 'Team 7B'
+author = 'Team 7D1'
 
 release = '0.1'
 version = '0.1.0'
