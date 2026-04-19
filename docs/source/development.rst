@@ -82,5 +82,9 @@ Developer Goals
 ---------------
 Scope of the project is to produce an application (and accompanying backend) that covers all possible User and System requirements as listed in Coursework Item 1.
 
+.. _tips:
+Helpful Tips
+------------
+Palette.dart contains the Chatlus colours, font sizes, padding and spacing presets for easy and consistent styling
 
 
