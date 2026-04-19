@@ -1,4 +1,4 @@
-SETaP 7B1 - Chatlus Documentation
+SETaP 7D1 - Chatlus Documentation
 ===================================
 
 **Chatlus** is a novel Instant Messenger app that prioritises local connection through location-separated chatrooms.
