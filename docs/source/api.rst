@@ -10,6 +10,41 @@ API Description
 
 The backend facilitates communication with the Google Maps API as well as handling all storage and replication of user-generated content (chatrooms, messages, etc.)
 
+
+Model Documentation
+======================
+
+
+Mandates input at endpoints, raises error if these structures are not followed.
+
+``CreateAttachment``
+
+  ``file_url`` - Mandatory string
+
+``UpdateAttachment``
+
+  ``file_url`` - Optional string
+
+``CreateChatroom``
+
+  ``chatroom_type`` - Mandatory string
+
+  ``chatroom_name`` - Mandatory string
+
+  ``coords_bottom_right`` - Optional string
+
+  ``coords_top_left`` - Optional string
+
+``UpdateChatroom``
+
+  ``chatroom_name`` - Optional string
+
+``CreateMessage``
+
+  ``sender_id`` - Mandatory string
+
+  ``content`` - Mandatory string
+
 Endpoint Documentation
 ======================
 
@@ -129,11 +164,22 @@ Relationships
 
   POST - user rejects the DM request.
 
-``/user/<user_id>/blocks``
+Blocks
+------
 
-  GET - returns user blocks
+``/blocks/<user_id>``
+
+  GET - Returns user blocks
 
   POST - blocks new user
+
+``blocks/<user_id>/<blocked_id>``
+
+  DELETE - Unblocks user
+
+``/is_blocked/<user_id>/<target_id>
+
+  GET - Check if target is blocked by user
 
 Map
 ---
