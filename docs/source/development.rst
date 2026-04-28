@@ -85,6 +85,6 @@ Scope of the project is to produce an application (and accompanying backend) tha
 .. _tips:
 Helpful Tips
 ------------
-Palette.dart contains the Chatlus colours, font sizes, padding and spacing presets for easy and consistent styling
+The 'theme' folder contains the Chatlus app colours, font styles, padding and spacing presets for easy and consistent styling.
 
 
