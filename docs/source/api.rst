@@ -45,6 +45,66 @@ Mandates input at endpoints, raises error if these structures are not followed.
 
   ``content`` - Mandatory string
 
+``UpdateMessage``
+
+  ``sender_id`` - Mandatory string
+
+  ``content`` - Mandatory String
+
+``Login``
+
+  ``username`` - Mandatory string
+
+  ``password`` - Mandatory string
+
+``DMRequest``
+
+  ``sender_id`` - Mandatory String
+
+  ``recipient_id`` - Mandatory String
+
+``FriendRequest``
+
+  ``sender_id`` - Mandatory String
+
+  ``receiver_id`` - Mandatory String
+
+``MentionCreate``
+
+  ``mentioned_user`` - Mandatory string
+
+``ReportCreate``
+
+  ``sender_id`` - Mandatory String
+
+  ``report_type`` - Mandatory string
+
+  ``content`` - Mandatory String
+
+``CreateUser``
+
+  ``username`` - Mandatory String
+
+  ``password`` - Mandatory String
+
+``UpdateUser``
+
+  ``username`` - Optional string
+
+  ``password_hash`` - Optional string
+
+  ``avatar_url`` - Optional string
+
+  ``bio`` - Optional string
+
+  ``account_status`` - Optional string
+
+  ``age_verified`` - Optional boolean
+
+  ``show_online_status`` - Optional boolean
+
+  ``notifications_enabled`` - Optional boolean
+
 Endpoint Documentation
 ======================
 
