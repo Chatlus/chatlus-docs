@@ -14,6 +14,6 @@ Contents
 
    user_guide
    development
-      api
-      frontend_screens
-      frontend_docs
+   api
+   frontend_screens
+   frontend_docs
