@@ -16,3 +16,4 @@ Contents
    development
       api
       frontend_screens
+      frontend_docs
