@@ -30,7 +30,7 @@ Home Screen
 Map Screen
 ----------
 
-- Displays a map centered on the user’s current location.
+- Displays a map centred on the user’s current location.
 - Allows the user to:
   - Adjust the search radius
   - Search for groups
@@ -45,12 +45,11 @@ Messages Screen
 - Opens the selected chat when tapped.
 
 
-Notifications Screen
+Notification Settings Screen
 --------------------
 
 - Displays a list of notifications.
-- Navigates to the related chat or profile when a notification is tapped.
-
+- Navigates to the related chat, profile, or DM Request Screen when a notification is tapped.
 
 Profile Screen
 --------------
@@ -64,14 +63,34 @@ Settings Screen
 ---------------
 
 - Displays the settings menu.
-- Includes:
+- Includes navigation to the following screens:
   - Blocked users
   - Privacy
   - Notifications
-  - Appearance
-  - Help
   - About
-  - Logout
+- As well as the 'Logout' button
+
+
+Blocked Users Screen
+--------------------
+- Displays blocked users.
+- Allows users to unblock previously blocked users.
+
+
+Privacy Settings Screen
+-----------------------
+
+- Allows users to control whether their online/offline status is visible to others.
+
+
+Notification Settings Screen
+----------------------------
+- Allows users to control app notification preferences.
+
+
+About Screen
+------------
+- Displays app information and usage overview.
 
 
 Friend List Screen
@@ -116,6 +135,7 @@ Group Chat Screen
   - Deleting messages
 
 
+
 Direct Message Chat Screen
 --------------------------
 
@@ -124,12 +144,14 @@ Direct Message Chat Screen
   - Sending messages
   - Editing messages
   - Deleting messages
+- Opens a member's profile when clicking on their name or avatar.
 
 
 Group Info Screen
 -----------------
 
 - Displays details and member list for joined groups.
+- Opens a member's profile when clicking on their name or avatar.
 
 
 Non-Member Group Info Screen
@@ -143,3 +165,9 @@ Create Group Screen
 -------------------
 
 - Displays a form for creating a new location-based group.
+
+
+DM Request Screen
+-----------------
+- Displays incoming direct message requests.
+- Allows accepting or declining requests.
