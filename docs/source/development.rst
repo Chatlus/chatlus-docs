@@ -10,15 +10,17 @@ Install Guide
 ^^^^^^^^^^^^^
 
 1. Install the latest version of Python.
-2. Install PSQL and run `CREATE USER chatlus;CREATE DATABASE app;` in the PSQL terminal. This might be trickier so I need to update the install guide for this.
+2. Install PSQL and ensure that you can enter commands. Run `CREATE USER chatlus;CREATE DATABASE app;` in the PSQL terminal.
 3. Clone the Git repo and run `cd backend` in your preferred code editor.
-4. Run `pip install -r requirements.txt` to get the required dependencies installed.
+4. Run `pip install -r requirements.txt` to get the required dependencies installed (likely requires a venv folder to install correctly.)
+5. To enable the map feature, you need an API key for Google Map Tile API. Generate this with a Google account.
+6. Create a file named .env in /backend, and enter GOOGLE_MAPS_API_KEY=[YOUR API KEY] in it.
 
 ^^^^^^^^^^^^^
 Usage Guide
 ^^^^^^^^^^^^^
 
-The API can be accessed currently at http://127.0.0.1:5000/<api_route>.
+By default, the API can be accessed at http://127.0.0.1:5000/<api_route>.
 
 1. Clone the Git repo and run `cd backend` in your preferred code editor.
 2. Run `flask run` to start the backend server.
@@ -61,10 +63,9 @@ Test Instructions
 
 1. Pull this repository and open it with your preferred Code Editor
 2. Run ``cd frontend`` in the terminal.
-3. Setup your device:
+3. Setup your device for use with Flutter:
 
-* Run ``flutter emulators --launch [Emulator_Name]`` to launch your Android Emulator
-* Run ``???`` to connect to your actual phone.
+* Run ``flutter emulators --launch [Emulator_Name]`` to launch your Android Emulator, if applicable.ne.
 
 4. Run ``flutter run`` in the terminal to open your Android Emulator/Device and run the app.
 
