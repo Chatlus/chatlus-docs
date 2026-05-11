@@ -22,10 +22,10 @@ Install Guide
 Usage Guide
 ^^^^^^^^^^^^^
 
-By default, the API can be accessed at http://127.0.0.1:5000/<api_route>.
+By default, the API can be accessed at ``http://127.0.0.1:5000/<api_route>``.
 
-1. Clone the Git repo and run `cd backend` in your preferred code editor.
-2. Run `flask run` to start the backend server.
+1. Clone the Git repo and run ``cd backend`` in your preferred code editor.
+2. Run ``flask run`` to start the backend server.
 
 ^^^^^^^^^^^^^
 Components
