@@ -14,7 +14,6 @@ The backend facilitates communication with the Google Maps API as well as handli
 Model Documentation
 ======================
 
-
 Mandates input at endpoints, raises error if these structures are not followed.
 
 ``CreateAttachment``
@@ -108,142 +107,251 @@ Mandates input at endpoints, raises error if these structures are not followed.
 Endpoint Documentation
 ======================
 
-Users
------
+Attachments
+-----------
 
-``/users``
+``/attachments/chatroom/<chatroom_id>/<message_id>``
 
-  GET - returns all users, really only good for admin purposes
+  GET - get all attachments for message
   
-  POST - Add a new user to the database.
+  POST - add attachment to message, takes json "file_url":string as args
 
-``/users/<user_id>``
+``/attachments/chatroom/<chatroom_id>/<message_id>/<attachment_id>``
 
-  GET - returns user data
+  GET - get attachment on message
   
-  PUT - edit user data
-
-Chatrooms
----------
-
-``/chatrooms``
-
-  GET - returns all chatrooms
-  
-  POST - create chatroom
-
-``/chatroom/<chatroom_id>``
-
-  GET - get chatroom with ID
-  
-  PUT - edit chatroom with ID
-
-``/chatroom/<chatroom_id>/activity``
-
-  GET - get chatroom activity
-
-Messages
---------
-
-``/chatroom/<chatroom_id>/messages``
-
-  GET - get chatroom messages
-  
-  POST - add nessage to chatroom
-
-``/chatroom/<chatroom_id>/<message_id>``
-  
-  GET - returns message
-  
-  PUT - edit message
-  
-  DELETE - delete message
-
-``/chatroom/<chatroom_id>/<message_id>/attachments``
-
-  GET - get attachments in message
-
-  PUT - add attachments to message
-
-``/chatroom/<chatroom_id>/<message_id>/mentions``
-
-  GET - mentions in a message
-
-  POST - add message mention
-
-``/chatroom/<uuid:chatroom_id>/<message_id>/<attachment_id>``
-
-  GET - get attachment
-
-  PUT - edit attachment
+  PUT - edit attachment, takes JSON "file_url":string as args
 
   DELETE - delete attachment
 
-Reports
--------
+Auth
+----
 
-``/chatroom/<chatroom_id>/<message_id>/reports``
+``/auth/login``
 
-  GET - get reports on a message
-
-  POST - report message
-
-``/chatroom/<chatroom_id>/<message_id>/<report_id>``
-  
-  GET - get report info
-
-  DELETE - delete report
-
-Memberships
------------
-
-``/user/<user_id>/memberships``
-
-  GET - returns user chatroom memberships
-
-  POST - adds chatroom membership for user
-
-``/chatroom/<chatroom_id>/memberships``
-
-  GET - get chatroom members
-
-Relationships
--------------
-
-``/user/<user_id>/requests``
-
-  GET - returns all DM requests a user has been sent
-  
-  POST - send a DM request to this user
-
-``/user/<user_id>/requests/<request_id>/accept``
-
-  POST - user accepts the DM request.
-
-``/user/<user_id>/requests/<request_id>/reject``
-
-  POST - user rejects the DM request.
+  POST - check if valid login, takes json "username":string,"password":string as args
 
 Blocks
 ------
 
 ``/blocks/<user_id>``
 
-  GET - Returns user blocks
+  GET - List of users you blocked
 
-  POST - blocks new user
+  POST - block someone, takes json "blocked_id":uuid as args
 
-``blocks/<user_id>/<blocked_id>``
+``/blocks/<user_id>/<blocked_id>``
 
-  DELETE - Unblocks user
+  DELETE - Unblock user
 
-``/is_blocked/<user_id>/<target_id>
+``/blocks/is_blocked/<user_id>/<target_id>``
 
-  GET - Check if target is blocked by user
+  GET - check block status, one way
+
+Chatrooms
+---------
+
+``/chatrooms/``
+
+  GET - Get ALL CHATROOMS
+
+  POST - Create chatroom, takes json "chatroom_type":string,"chatroom_name":string as args
+
+
+``/chatrooms/<chatroom_id>``
+
+  GET - Get chatroom
+
+  PUT - edit chatroom parameters, takes json "chatroom_name":string as args
+
+
+``/chatrooms/<chatroom_id>/memberships``
+
+  GET - get all members of chatroom
+
+``/chatrooms/join``
+
+  POST - join chatroom, takes json "user_id":uuid,"chatroom_id":uuid as args
+
+``/chatrooms/leave``
+
+  POST - remove user from chatroom, takes json "user_id":uuid,"chatroom_id":uuid as args
+
+``/chatrooms/create``
+
+  POST - Create chatroom, takes json "user_id":uuid,"name":string,"description":string, "chatroom_type":string,"members":list,"lat":float,"lng":float as args
+    
+    Easier to memorise endpoint for POSTing /chatrooms
+
+``/chatrooms/user/<user_id>``
+
+  GET - For every chatroom chatrooms user belongs to, get its details, their last message there and its timestamp
+
+``/chatrooms/<chatroom_id>/add_member``
+
+  POST - add member to chatroom, takes json "user_id":uuid as args
+
+``/chatrooms/<chatroom_id>/add_member``
+
+  POST - remove member from chatroom, takes json "user_id":uuid as args
+
+``/chatrooms/<chatroom_id>/info``
+
+  GET - get all metadata for chatroom
+
+DM Requests
+-----------
+
+``/dm_requests/send``
+
+  POST - Sends DM Request, takes json "sender_id":uuid,"recipient_id":uuid as args
+
+``/dm_requests/incoming/<user_id>``
+
+  GET - Get incoming DM requests for user
+
+``/dm_requests/accept/<request_id>``
+
+  POST - Accept DM request with ID
+
+``/dm_requests/decline/<request_id>``
+
+  POST - Decline DM request with ID
+
+
+Friend Requests
+---------------
+
+``/friend_requests/send``
+
+  POST - Send friend request, takes json "sender_id":uuid,"receiver_id":uuid as args
+
+``/friend_requests/<user_id>/incoming``
+
+  GET - Get list of incoming friend requests for user
+
+``/friend_requests/<user_id>/outgoing``
+
+  GET - get all outgoing, currently pending friend requests from user
+
+``/friend_requests/<request_id>/accept``
+
+  POST - Accept incoming friend request, send notification of acceptance, create DM chatroom if doesn't exist
+
+``/friend_requests/<request_id>/decline``
+
+  POST - DECLINE incoming friend request
+
+``/friend_requests/<request_id>/cancel``
+
+  POST - cancel outgoing friend request
+
+``/friend_requests/status/<user_id>/<target_id>``
+
+  GET - Check status of outgoing friend request
 
 Map
 ---
 
-``/map``
+``/map/login``
 
-  GET request with lat,long and zoom coordinates will return a png from the Google Maps Tile API or temporary server-side cache respectively.
+  GET - get map image at coordinates and zoom level, effectively an interface to map api, takes lat=float,lng=float,zoom=int as POST args
+
+``/map/chatrooms/nearby``
+
+  GET - Get list of locational chatrooms, takes lat=float,lng=float,radius=int as POST args
+
+Mentions
+--------
+
+``/mentions/chatroom/<chatroom_id>/<message_id>``
+
+  GET - get mentions included in message
+  
+  POST - add mention to message, takes json "mentioned_user":uuid as args
+
+Messages
+--------
+
+``/messages/chatroom/<chatroom_id>``
+
+  GET - get all messages in chatroom
+
+  POST - add message to chatroom, takes json "sender_id":uuid, "content":string as args
+
+``/messages/chatroom/<chatroom_id>/<message_id>``
+
+  PUT - edit message at ID, takes json "content":string as args
+
+  DELETE - delete message at ID
+
+Notifications
+-------------
+
+``/notifications/<user_id>``
+
+  GET - GET NOTIFICATIONS FOR USER
+
+``/notifications/mark_read/<notification_id>``
+
+  POST - Mark notification as read
+
+Reports
+-------
+
+``/reports/<message_id>/reports``
+
+  GET - get all reports for message
+
+  POST - report message, takes json "sender_id":uuid,"report_type":string,"content":string as args
+
+``/reports/<message_id>/<report_id>``
+
+  GET - get individual report for message, display info
+
+  DELETE - remove report from message
+
+Users
+-----
+
+``/users``
+  
+  GET - get all users
+
+  POST - add user to database, takes in json "username":string,"password_hash":string as args
+
+``/users/<user_id>``
+
+  GET- Get all info about a user stored in the users table
+
+  PUT - edit user info - takes json "field":data as args based on table described in function
+
+``/users/<user_id>/memberships``
+
+  GET - get all chatroom_memberships for user
+
+  POST - add user to chatroom - takes json "chatroom_id":uuid as args
+
+``/users/<user_id>/friends``
+
+  GET - get all user friends
+
+``/users/<user_id>/notifications_enabled``
+
+  GET - return whether or not notifications are enabled for user (setting endpoint)
+  
+  POST - enable/disable notifications for user - takes in json "enabled":bool as args
+
+``/users/<user_id>/presence_visibility``
+
+  GET - return whether or not presence status is shown for user (setting endpoint)
+
+  POST - enable/disable presence visibility setting - takes in json "visible":bool as args
+
+``/users/<user_id>/presence/online``
+
+  POST - set user as online
+
+``/users/<user_id>/presence/offline``
+
+  POST - set user as offline
