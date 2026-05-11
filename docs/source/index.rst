@@ -15,5 +15,6 @@ Contents
    user_guide
    development
    api
+   backend_components
    frontend_screens
    frontend_docs
