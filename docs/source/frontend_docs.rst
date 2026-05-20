@@ -305,8 +305,6 @@ friends_services.dart
 
 ``unfriend()`` - takes in user ID + target user ID, removes friend on backend
 
-``blockUser()`` - takes in User ID + Target User ID as well as Block bool, either blocks or unblocks target respectively
-
 ``reportUser()`` - Takes in user ID + Target User ID, reports user on backend
 
 ``isFriend()`` - Takes in User ID + Target ID, returns bool if user friend on backend
