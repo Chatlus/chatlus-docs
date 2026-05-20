@@ -118,20 +118,6 @@ Frontend page for joined-group info.
 
 ``GroupInfoPage`` - takes in chatroom ID, user ID
 
-==========================
-group_non_member_info.dart
-==========================
-
-Frontend group-level non-member info flow.
-
-- Handles viewing group details before membership.
-
-``loadGroupInfo()`` - calls ChatroomService equivalent
-
-``joinGroup()`` - calls ChatroomService equivalent
-
-``GroupInfoPAgeNonMember`` - takes in groupName, chatroom ID, user ID
-
 =======================
 user_chatroom_page.dart
 =======================
@@ -318,12 +304,6 @@ friends_services.dart
 ``getFriends()`` - takes in user ID, returns user friend list
 
 ``unfriend()`` - takes in user ID + target user ID, removes friend on backend
-
-``sendFriendRequest()`` - Takes in user ID + Target User ID, sends friend request on backend
-
-``acceptFriendRequest()`` - Takes in user ID + Target User ID, accepts friend request on backend
-
-``declineFriendRequest()`` - Takes in user ID + Target User ID, accepts friend request on backend
 
 ``blockUser()`` - takes in User ID + Target User ID as well as Block bool, either blocks or unblocks target respectively
 
