@@ -27,6 +27,10 @@ By default, the API can be accessed at ``http://127.0.0.1:5000/<api_route>``.
 1. Clone the Git repo and run ``cd backend`` in your preferred code editor.
 2. Run ``flask run`` to start the backend server.
 
+On first-boot, default users will be added to the database for testing purposes. These are viewable in `database_inserts.sql` as well as the `seedIfEmpty()` function.
+
+Example: Developers can log-in with `user_0` and `sample_password_0` for testing purposes.
+
 ^^^^^^^^^^^^^
 Components
 ^^^^^^^^^^^^^
