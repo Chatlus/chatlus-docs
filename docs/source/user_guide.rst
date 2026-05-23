@@ -7,10 +7,7 @@ Installation
 
 To use Chatlus, install and run the .apk file provided.
 
-.. _usage:
-
-Usage
------
+.. _onboarding:
 
 Onboarding
 ----------
