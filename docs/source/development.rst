@@ -46,7 +46,9 @@ Components
 Frontend
 --------
 
-Technologies are currently Dart and Flutter, as well as Android Studio Goes in ``/frontend/``
+Technologies are currently Dart and Flutter, as well as Android Studio.
+
+Goes in ``/frontend/``
 
 ^^^^^^^^^^^^^
 Prerequisites
